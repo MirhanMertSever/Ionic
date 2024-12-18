@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Giriş</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <form (ngSubmit) = "loginFunction()" [formGroup] = "userInformation">
+    <ion-item>
+      <ion-input type = "email" placeholder = "Emailiniz" [formControl] = "email">
+      </ion-input>
+    </ion-item>
+
+    <div class = "loginAlert" *ngIf = "(email.dirty || email.touched) && email.errors">
+      <span *ngIf = "email.errors['required']">
+        Email kısmı boş bırakılamaz.
+      </span>
+      <span *ngIf = "email.errors['email']">
+        Geçerli bir email giriniz.
+      </span>
+    </div>
+
+    <ion-item style = "margin-top: 10px;">
+      <ion-input type = "password" placeholder = "Şifreniz" [formControl] = "password">
+      </ion-input>
+    </ion-item>
+
+    <div class = "loginAlert" *ngIf = "(password.dirty || password.touched) && password.errors">
+      <span *ngIf = "password.errors['required']">
+        Şifre kısmı boş bırakılamaz.
+      </span>
+      <span *ngIf = "password.errors['minlength']">
+        Geçerli bir şifre giriniz.
+      </span>
+    </div>
+
+    <ion-button 
+      color = "light"
+      [disabled] = "!userInformation.valid"
+      type="submit" 
+      expand="block" 
+      style="margin-top: 15px; color: black;">
+      Giriş Yapınız
+    </ion-button>
+    
+    <ion-button 
+    (click) = "register()"
+    color = "light"
+    expand="block" 
+    style="margin-top: 15px; color: black;">
+    Hesabınız Yok Mu?
+    </ion-button>
+
+    </form>
+</ion-content>

@@ -1,0 +1,38 @@
+<ion-header >
+  <ion-toolbar>
+    <ion-title>
+      Anasayfa
+    </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon slot="end" name="add"></ion-icon>
+        Çıkış
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Kullanıcılar</ion-card-title>
+      <ion-card-subtitle>Güncel</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let user of userList">
+          <ion-thumbnail slot="start">
+            <img alt="profile picture" src="{{user.avatar}}" />
+          </ion-thumbnail>
+          <ion-label>
+            <div>{{user.first_name}} {{user.last_name}}</div>
+            <div style="font-size: 0.9em; color: gray;">{{user.email}}</div>
+          </ion-label>
+        </ion-item>
+
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

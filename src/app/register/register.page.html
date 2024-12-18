@@ -1,0 +1,67 @@
+<ion-header >
+  <ion-toolbar>
+    <ion-title>Kayıt Ol</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defauftHref = "login">
+      </ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <form (ngSubmit) = "newRegister()" [formGroup] = "registerInformation">
+    <ion-item>
+      <ion-input type = "text" placeholder = "İsim" [formControl] = "name">
+      </ion-input>
+    </ion-item>
+    <div class = "registerAlert" *ngIf = "(name.dirty || name.touched) && name.errors">
+      <span *ngIf = "name.errors['required']">
+        İsim kısmı boş bırakılamaz.
+      </span>
+      <span *ngIf = "name.errors['minlength']">
+        En az 3 karakter giriniz.
+      </span>
+    </div>
+    <ion-item>
+      <ion-input type = "text" placeholder = "Soyisim" [formControl] = "surname">
+      </ion-input>
+    </ion-item>
+    <div class = "registerAlert" *ngIf = "(surname.dirty || surname.touched) && surname.errors">
+      <span *ngIf = "surname.errors['required']">
+        Soyisim kısmı boş bırakılamaz.
+      </span>
+      <span *ngIf = "surname.errors['minlength']">
+        En az 3 karakter giriniz.
+      </span>
+    </div>
+    <ion-item>
+      <ion-input type = "email" placeholder = "Email" [formControl] = "email">
+      </ion-input>
+    </ion-item>
+    <div class = "registerAlert" *ngIf = "(email.dirty || email.touched) && email.errors">
+      <span *ngIf = "email.errors['required']">
+        Email kısmı boş bırakılamaz.
+      </span>
+      <span *ngIf = "email.errors['email']">
+        Geçerli bir email giriniz.
+      </span>
+    </div>
+    <ion-item>
+      <ion-input type = "text" placeholder = "Parola" [formControl] = "password">
+      </ion-input>
+    </ion-item>
+
+    <div class = "registerAlert" *ngIf = "(password.dirty || password.touched) && password.errors">
+      <span *ngIf = "password.errors['required']">
+        Parola kısmı boş bırakılamaz.
+      </span>
+      <span *ngIf = "password.errors['minlength']">
+        Daha uzun bir parola giriniz.
+      </span>
+    </div>
+
+    <ion-button type = "submit" expand="block" [disabled] = "!registerInformation.valid">
+      Kayıt Ol
+    </ion-button>
+  </form>
+</ion-content>

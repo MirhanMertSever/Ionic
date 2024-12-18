@@ -1,0 +1,17 @@
+ion-content{
+    --padding-top: 60%;
+    --padding-start: 10%;
+    --padding-end: 10%;
+    --background: url("../../assets/background.jpg") 0 0/100% 100% no-repeat;
+}
+
+.loginAlert{
+    font-size: small;
+    color: white;
+    background: red;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    border-top-right-radius: 10px;
+    text-align: center;
+}
